@@ -4,88 +4,82 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("\n  ----------> Robin Cafe <----------\n \n");
-        System.out.println("This is the official Menu of Robin Cafe, Choose an item :\n");
-        System.out.println("1.  Milk Coffee -------- Rs. 250");
-        System.out.println("2.  Milk Tea ----------- Rs. 85");
-        System.out.println("3.  Milk Shake --------- Rs. 500");
-        System.out.println("4.  Cup Cake ----------- Rs. 150");
-        System.out.println("5.  Chocolate Cake ----- Rs. 350");
-        System.out.println("6.  Strawberry Cake ---- Rs. 350");
-        System.out.println("7.  Vanilla Cake ------- Rs. 350");
-        System.out.println("8.  Biscuit ------------ Rs. 250");
-        System.out.println("9.  Cookies ------------ Rs. 280");
-        System.out.println("10. Hot Chocolate ------ Rs. 150");
-        System.out.println("11. Bread Sandwich ----- Rs. 230");
-        System.out.println("12. Chocolate Ice Cream - Rs. 650");
-        System.out.println("13. Strawberry Ice Cream - Rs. 650");
-        System.out.println("14. Vanilla Ice Cream --- Rs. 650");
-        System.out.println("15. Hot Water ---------- Rs. 75");
-        System.out.println("16. Cold Water --------- Rs. 65");
-        System.out.println("17. ----------> Exit <----------");
-        System.out.println("\n \n");
-
         Scanner scan = new Scanner(System.in);
-        int order = 0;
 
-        try {
-            do {
-                System.out.print("Type the item number from the menu that you want: ");
+        while (true) {
 
-                if (!scan.hasNextInt()) {
-                    System.out.println("Please enter a valid number.");
-                    scan.next();
-                    continue;
-                }
+            System.out.println("\n ---------- ROBIN CAFE Offers to You these Features ---------- \n");
 
-                order = scan.nextInt();
+            System.out.println("\n ------------------------------------------------------------ \n");
+            System.out.println("1. Display Menu.");
+            System.out.println("2. Take an Order (add items.)");
+            System.out.println("3. Remove an Item from Order.");
+            System.out.println("4. View Current Order.");
+            System.out.println("5. Print Receipt.");
+            System.out.println("6. Checkout.");
+            System.out.println("7. Pay Pending Orders.");
+            System.out.println("8. Exit");
+            System.out.println("\n ------------------------------------------------------------ \n");
 
-                if (order == 17) {
-                    System.out.println(" -------------------------- ");
+            System.out.print("Enter choice: ");
+            int choice = scan.nextInt();
+            scan.nextLine();
+
+            switch (choice) {
+
+                case 1 -> displayMenu();
+                case 2 -> addOrder();
+                case 3 -> removeOrder();
+                case 4 -> viewOrder();
+                case 5 -> printReceipt();
+                case 6 -> checkOut();
+                case 7 -> payPending();
+
+                case 8 -> {
+                    System.out.println(" \n ------------------------------------------------------------ ");
                     System.out.println("You have successfully exited the system.");
-                    System.out.println("----------> Visit us again <----------");
+                    System.out.println("----------> Visit us again <---------- ");
+                    System.out.println(" ------------------------------------------------------------ \n ");
+
                     return;
                 }
 
-                System.out.print("Enter quantity: ");
-
-                if (!scan.hasNextInt()) {
-                    System.out.println("Please enter a valid quantity.");
-                    scan.next();
-                    continue;
-                }
-
-                int quantity = scan.nextInt();
-
-                switch (order) {
-                    case 1: System.out.println("You ordered: Milk Coffee x " + quantity); break;
-                    case 2: System.out.println("You ordered: Milk Tea x " + quantity); break;
-                    case 3: System.out.println("You ordered: Milk Shake x " + quantity); break;
-                    case 4: System.out.println("You ordered: Cup Cake x " + quantity); break;
-                    case 5: System.out.println("You ordered: Chocolate Cake x " + quantity); break;
-                    case 6: System.out.println("You ordered: Strawberry Cake x " + quantity); break;
-                    case 7: System.out.println("You ordered: Vanilla Cake x " + quantity); break;
-                    case 8: System.out.println("You ordered: Biscuit x " + quantity); break;
-                    case 9: System.out.println("You ordered: Cookies x " + quantity); break;
-                    case 10: System.out.println("You ordered: Hot Chocolate x " + quantity); break;
-                    case 11: System.out.println("You ordered: Bread Sandwich x " + quantity); break;
-                    case 12: System.out.println("You ordered: Chocolate Ice Cream x " + quantity); break;
-                    case 13: System.out.println("You ordered: Strawberry Ice Cream x " + quantity); break;
-                    case 14: System.out.println("You ordered: Vanilla Ice Cream x " + quantity); break;
-                    case 15: System.out.println("You ordered: Hot Water x " + quantity); break;
-                    case 16: System.out.println("You ordered: Cold Water x " + quantity); break;
-
-                    default:
-                        System.out.println("The item number does not exist. Please try again.");
-                        break;
-                }
-
-            } while (true);
-
-        } catch (Exception e) {
-            System.out.println("An exception occurred: " + e.getMessage());
-        } finally {
+                default -> System.out.println("The item number does not exist. Please try again.");
+            }
+     
             scan.close();
         }
     }
+
+
+
+    static void displayMenu() {
+        System.out.println("[MENU DISPLAYED]");
+    }
+
+    static void addOrder() {
+        System.out.println("[ORDER ADDED]");
+    }
+
+    static void removeOrder() {
+        System.out.println("[ORDER REMOVED]");
+    }
+
+    static void viewOrder() {
+        System.out.println("[VIEWING ORDER]");
+    }
+
+    static void printReceipt() {
+        System.out.println("[RECEIPT PRINTED]");
+    }
+
+    static void checkOut() {
+        System.out.println("[CHECKOUT COMPLETE]");
+    }
+
+    static void payPending() {
+        System.out.println("[PENDING PAYMENT CLEARED]");
+    }
+
+    
 }
