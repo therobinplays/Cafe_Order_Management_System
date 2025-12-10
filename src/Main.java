@@ -1,10 +1,12 @@
+
 import java.util.Scanner;
+import controller.ItemsController;
 
 public class Main {
 
-    public static void main(String[] args) {
+    static Scanner scan = new Scanner(System.in);
 
-        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) {
 
         while (true) {
 
@@ -41,20 +43,18 @@ public class Main {
                     System.out.println("----------> Visit us again <---------- ");
                     System.out.println(" ------------------------------------------------------------ \n ");
 
+                    scan.close();
                     return;
                 }
 
                 default -> System.out.println("The item number does not exist. Please try again.");
             }
-     
-            scan.close();
         }
     }
 
-
-
     static void displayMenu() {
-        System.out.println("[MENU DISPLAYED]");
+        ItemsController itemsController = new ItemsController();
+        itemsController.displayMenu();
     }
 
     static void addOrder() {
@@ -81,5 +81,4 @@ public class Main {
         System.out.println("[PENDING PAYMENT CLEARED]");
     }
 
-    
 }
