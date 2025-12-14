@@ -32,7 +32,7 @@ public class ItemsController {
 
         try {
             do {
-                System.out.print("Type the item number from the menu that you want: ");
+                System.out.print("Enter the item Number from the Menu that you want: ");
 
                 if (!scan.hasNextInt()) {
                     System.out.println("Please enter a valid number.");
