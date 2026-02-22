@@ -2,6 +2,8 @@ package controller;
 
 import java.util.Scanner;
 
+import service.OrdersService;
+
 public class OrdersController {
 
     static Scanner scan = new Scanner(System.in);
@@ -58,7 +60,8 @@ public class OrdersController {
     }
 
     static void addOrder() {
-        System.out.println("[ORDER ADDED]");
+        OrdersService ordersService = new OrdersService();
+        ordersService.addOrder();
     }
 
     static void removeOrder() {
